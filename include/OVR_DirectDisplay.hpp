@@ -2,8 +2,6 @@
 #include "OVR_Math.hpp"
 #include "OVR_Interface.hpp"
 
-using namespace OVRInterface;
-
 typedef enum ovrDisplayOutputType_ {
   ovrDisplayOutput_Unknown = 0,
   ovrDisplayOutput_DP = 1,
@@ -58,12 +56,12 @@ static const uint64_t IID_IDirectDisplaySurface = 0xAD7152FE3248D8C4;
 static const uint64_t IID_IDirectDisplay = 0xAD7152FE3248D8C6;
 static const uint64_t IID_IDirectDisplayAPI = 0xAD7152FE3248D8C8;
 
-class IDirectDisplaySurface : public IUnknown {
+class IDirectDisplaySurface : public OVRInterface::IUnknown {
 public:
   virtual HANDLE GetSharedHandle() = 0;
 };
 
-class IDirectDisplay : public IUnknown {
+class IDirectDisplay : public OVRInterface::IUnknown {
 public:
   virtual ovrResult GetProperties(ovrDisplayProperties* outProperties) = 0;
 
@@ -99,7 +97,7 @@ public:
   virtual ovrResult GetHdcpState(ovrBool* outState) = 0; // outValue: True = HDCP active, False = HDCP inactive
 };
 
-class IDirectDisplayAPI : public IUnknown {
+class IDirectDisplayAPI : public OVRInterface::IUnknown {
 public:
   virtual ovrResult EnableDirectDisplay(ovrBool value) = 0;
 

@@ -1,6 +1,6 @@
 #pragma once
 #if defined(_WIN32)
-#include <windows.h>
+#include <dxgi.h>
 typedef DXGI_RATIONAL ovrRational;
 #else
 #error "Unsupported Platform."
