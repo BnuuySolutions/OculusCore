@@ -34,6 +34,10 @@ typedef enum oafInputControllerEventType_ {
   OAF_INPUT_CONTROLLER_EVENT_TYPE_OCULUS_BUTTON = 1
 } oafInputControllerEventType;
 
+typedef enum oafHMDEventType_ {
+  OAF_HMD_EVENT_TYPE_HMD_ATTACHED = 1 // Only seems to be fired after HMDs and Displays are connected fully.
+} oafHMDEventType;
+
 // OVRService functions
 // TODO(Kaitlyn): Determine return values, if at all, also figure out unknown parameters as well.
 static int32_t (*Oaf_OVRService_ChangeFocus)(uint32_t processId) = nullptr;
