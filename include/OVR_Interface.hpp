@@ -34,4 +34,20 @@ public:
   virtual void* QueryInterface(uint64_t iid) = 0;
 };
 
+class IInterfaceFactory : public IUnknown {
+public:
+};
+
+class IAggregateInterfaceFactory : public IInterfaceFactory {
+public:
+};
+
+class OVRAggregateInterfaceFactory : public IAggregateInterfaceFactory {
+public:
+};
+
+class OVRInterfaceManager : public OVRAggregateInterfaceFactory {
+public:
+};
+
 } // OVRInterface
