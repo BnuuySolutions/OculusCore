@@ -35,7 +35,8 @@ typedef enum oafInputControllerEventType_ {
 } oafInputControllerEventType;
 
 typedef enum oafHMDEventType_ {
-  OAF_HMD_EVENT_TYPE_HMD_ATTACHED = 1 // Only seems to be fired after HMDs and Displays are connected fully.
+  OAF_HMD_EVENT_TYPE_HMD_ATTACHED = 1, // Only seems to be fired after HMDs and Displays are connected fully.
+  OAF_HMD_EVENT_TYPE_IAD_CHANGED = 9 // Fired when IPD is changed.
 } oafHMDEventType;
 
 // OVRService functions
