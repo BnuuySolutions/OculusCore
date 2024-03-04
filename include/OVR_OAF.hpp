@@ -8,6 +8,7 @@
 #define OAF_OVRSERVICE_SETDEPTHBUFFERSREQUESTSTATUS_FUNCTION_ID 9
 #define OAF_OVRSERVICE_ACTIVATEHEADSET_FUNCTION_ID 24
 #define OAF_OVRSERVICE_SETTRACKINGMODE_FUNCTION_ID 46
+#define OAF_OVRSERVICE_SETAIRLINKPAIRINGRESULT_FUNCTION_ID 86
 
 // OAF callback IDs
 #define OAFSERVER_TESTCONNECTION_CALLBACK_ID 0
@@ -19,6 +20,7 @@
 #define OAF_HMDEVENT_CALLBACK_ID 18
 #define OAF_TRACKEREVENT_CALLBACK_ID 19
 #define OAF_SETDEFAULTHEADSET_CALLBACK_ID 59
+#define OAF_NOTIFYAIRLINKPAIRINGSTART_CALLBACK_ID 70
 
 typedef enum oafInputEventType_ {
   // NOTE(Kaitlyn): Is this correct?
@@ -47,6 +49,7 @@ static int32_t (*Oaf_OVRService_SetModalSystemOverlay)(ovrBool value) = nullptr;
 static int32_t (*Oaf_OVRService_SetDepthBuffersRequestStatus)(ovrBool value) = nullptr;
 static int32_t (*Oaf_OVRService_ActivateHeadset)(const char serialNumber[16], int32_t a2) = nullptr;
 static uint8_t (*Oaf_OVRService_SetTrackingMode)(ovrBool value) = nullptr;
+static uint8_t (*Oaf_OVRService_SetAirLinkPairingResult)(ovrBool value, const char serialNumber[16]) = nullptr;
 
 static void OculusAppFrameworkInitFunctions(void** functions) {
   Oaf_OVRService_ChangeFocus = decltype(Oaf_OVRService_ChangeFocus)(functions[OAF_OVRSERVICE_CHANGEFOCUS_FUNCTION_ID]);
@@ -55,4 +58,5 @@ static void OculusAppFrameworkInitFunctions(void** functions) {
   Oaf_OVRService_SetDepthBuffersRequestStatus = decltype(Oaf_OVRService_SetDepthBuffersRequestStatus)(functions[OAF_OVRSERVICE_SETDEPTHBUFFERSREQUESTSTATUS_FUNCTION_ID]);
   Oaf_OVRService_ActivateHeadset = decltype(Oaf_OVRService_ActivateHeadset)(functions[OAF_OVRSERVICE_ACTIVATEHEADSET_FUNCTION_ID]);
   Oaf_OVRService_SetTrackingMode = decltype(Oaf_OVRService_SetTrackingMode)(functions[OAF_OVRSERVICE_SETTRACKINGMODE_FUNCTION_ID]);
+  Oaf_OVRService_SetAirLinkPairingResult = decltype(Oaf_OVRService_SetAirLinkPairingResult)(functions[OAF_OVRSERVICE_SETAIRLINKPAIRINGRESULT_FUNCTION_ID]);
 }
